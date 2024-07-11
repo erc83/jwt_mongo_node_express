@@ -5,9 +5,15 @@ import dotenv from "dotenv"
 dotenv.config()
 
 import recipesRoutes from './routes/recipes.routes.js'
+import authRoutes from './routes/auth.routes.js'
+
+
+import { createRoles } from './libs/initialSetup.js'
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+createRoles();
 
 app.use(morgan('dev'));
 app.use(express.json())
@@ -20,6 +26,7 @@ app.get("/", (req, res) => {
 })
 
 app.use('/recipes', recipesRoutes)
+app.use('/auth', authRoutes)
 
 app.get("*", (req, res) => {
     res.send("Page Not Found")
