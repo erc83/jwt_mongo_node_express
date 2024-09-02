@@ -7,11 +7,13 @@ import {
     deleteRecipeById,
 } from '../controllers/recipes.controller.js'
 
+import { verifyToken } from "../middlewares/authJwt.js";
+
 const router = express.Router();
 
 router.get('/', getRecipientes);
 
-router.post('/', createRecipe);
+router.post('/', verifyToken , createRecipe);
 
 router.get('/:recipeId', getRecipeById);
 

@@ -46,7 +46,7 @@ export const getRecipeById = async (req, res ) => {
     if( !ObjectId.isValid(id)) {
         return res.status(400).json({message: 'ID no válido'});
     }
-    const query = { _id: new ObjectId(id) };
+    const query = { _id: new ObjectId(`${id}`) };
     const client = await getConnection();
     try {
         const database = client.db(dbName);
@@ -72,7 +72,7 @@ export const updateProductById = async (req, res) => {
         return res.status(400).json({ error: error.details[0].message });
     }
     const client = await getConnection();
-    const query = { _id: new ObjectId(recipeId) };
+    const query = { _id: new ObjectId(`${recipeId}`) };
     const newValue =  { $set: {name , ingredientes } };   
     try {
         const database = client.db(dbName);
@@ -95,7 +95,7 @@ export const updateProductById = async (req, res) => {
 export const deleteRecipeById = async(req, res )=> {
     const { recipeId }= req.params
     const client = await getConnection();
-    const query = { _id: new ObjectId(recipeId) };
+    const query = { _id: new ObjectId(`${recipeId}`) };
     try {
         const database = client.db(dbName);
         const collection = database.collection(collectionName);

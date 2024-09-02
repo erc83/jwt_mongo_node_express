@@ -38,7 +38,6 @@ export const register = async (req, res) => {
         newUser.roles = [rol._id]
     }
 
-
     try {
 
         const collectionUser = database.collection(collection_user);
