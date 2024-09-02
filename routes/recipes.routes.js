@@ -17,8 +17,8 @@ router.post('/', verifyToken , createRecipe);
 
 router.get('/:recipeId', getRecipeById);
 
-router.put('/:recipeId', updateProductById)
+router.put('/:recipeId', verifyToken,  updateProductById)
 
-router.delete('/:recipeId', deleteRecipeById)
+router.delete('/:recipeId', verifyToken, deleteRecipeById)
 
 export default router;
