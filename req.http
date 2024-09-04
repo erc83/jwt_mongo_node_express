@@ -14,6 +14,7 @@ Accept: application/json
 POST http://localhost:5000/recipes HTTP/1.1
 Content-Type: application/json
 Accept: application/json
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZDUzN2ViNTQ5M2QyODc4OGNkMGY3OSIsImlhdCI6MTcyNTMyMzc3MSwiZXhwIjoxNzI1MzI0MzcxfQ.RCRVP0faCvOk3v_7IfCJozQ0uXsyraTYuj7YOz0QNVY
 
 {
     "name": "Prueba post desde la postman",
@@ -28,6 +29,7 @@ Accept: application/json
 PUT http://localhost:5000/recipes/668b1d5093f758fd85cfb156 HTTP/1.1
 Content-Type: application/json
 Accept: application/json
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZDUzN2ViNTQ5M2QyODc4OGNkMGY3OSIsImlhdCI6MTcyNTMyMzc3MSwiZXhwIjoxNzI1MzI0MzcxfQ.RCRVP0faCvOk3v_7IfCJozQ0uXsyraTYuj7YOz0QNVY
 
 {
     "name": "Excellent",
@@ -43,8 +45,43 @@ Accept: application/json
 DELETE http://localhost:5000/recipes/668b5fb4e497fa4b706ebdad HTTP/1.1
 Content-Type: application/json
 Accept: application/json
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZDUzN2ViNTQ5M2QyODc4OGNkMGY3OSIsImlhdCI6MTcyNTMyMzc3MSwiZXhwIjoxNzI1MzI0MzcxfQ.RCRVP0faCvOk3v_7IfCJozQ0uXsyraTYuj7YOz0QNVY
+
+
+
+#########
+POST http://localhost:5000/auth/login HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "Elenias@gmail.com",
+    "password": "123123"
+}
 
 
 
 
+#########
+POST http://localhost:5000/auth/register HTTP/1.1
+Content-Type: application/json
+Accept: application/json
 
+{
+    "username":"elias",
+    "email": "Elenias@gmail.com",
+    "password": "123123"
+}
+
+
+#########
+POST http://localhost:5000/auth/register HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "username": "eric",
+    "email": "eric@gmail.com",
+    "password": "123123",
+    "roles": ["admin"]
+}
