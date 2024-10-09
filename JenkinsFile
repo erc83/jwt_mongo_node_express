@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout Code') {
+            steps {
+                echo 'git'
+                git(url: 'https://github.com/erc83/jwt_mongo_node_express', branch: 'persistencia')
+            }
+        }   
+    
+        stage('Install dependencies') {
+            steps {
+                script {
+                    // Instalación de las dependencias especificadas en package.json
+                    bat 'npm install'
+                }
+            }
+        }
+
+        stage('Deploy'){
+            steps {
+                bat 'npm start'
+            }
+        }
+    }
+}
